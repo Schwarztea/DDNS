@@ -54,8 +54,7 @@ def request(method, action, param=None, **params):
         params = None
     conn.request(method, '/client/v4/zones' + action, params,
                  {"Content-type": "application/json",
-                  "X-Auth-Email": ID,
-                  "X-Auth-Key": TOKEN})
+                   "Authorization": 'Bearer '+ TOKEN})
     response = conn.getresponse()
     res = response.read()
     conn.close()
